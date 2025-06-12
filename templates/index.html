@@ -1,0 +1,124 @@
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
+    <style>
+      #tsparticles {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brazza Cafés</title>
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1354270437080699042/1382548722218569870/PERFIL.png?ex=684b8e55&is=684a3cd5&hm=642223cb3849b38af0109df9ffbd3bf809dc4715e8a73be328da80d184189b49&" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #1d120b;
+      }
+      .bg-hero {
+        background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .map-responsive {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 1rem;
+        border: 4px solid #f97316; /* orange-500 */
+        box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+      }
+      .map-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 0.75rem;
+      }
+    </style>
+  </head>
+  <body class="text-gray-100">
+
+    <!-- Hero Section -->
+    <section class="h-screen bg-hero flex flex-col justify-center items-center text-white text-center px-6">
+      <div class="bg-black bg-opacity-60 p-10 rounded-xl shadow-lg max-w-xl w-full" data-aos="fade-down">
+        <img src="https://cdn.discordapp.com/attachments/1354270437080699042/1382548719664238632/BRAZZACOR2.png?ex=684b8e55&is=684a3cd5&hm=42f1e314c629d8f9ab7ccd5b1f36d9db08e98e846520de96cafb889fd8303473&" alt="Brazza Café Logo" class="w-64 mx-auto mb-6" />
+        <p class="text-xl text-orange-200 mb-6">Seu refúgio do sabor com um toque especial.</p>
+        <div class="flex flex-col sm:flex-row justify-center sm:space-x-6 space-y-4 sm:space-y-0">
+          <a href="https://wa.me/11983567622" target="_blank" rel="noopener noreferrer" 
+            class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-3 rounded-full shadow transition w-full sm:w-auto">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.478a11.73 11.73 0 0 0-16.564 0 11.846 11.846 0 0 0-3.396 8.216c0 2.055.552 4.057 1.598 5.818L2 22l4.48-1.188a11.848 11.848 0 0 0 6.34 1.815h.002a11.846 11.846 0 0 0 8.216-3.396 11.727 11.727 0 0 0 0-16.753zm-3.24 12.004c-.18.51-1.05 1.008-1.456 1.074-.379.064-.768.089-1.176-.16a12.89 12.89 0 0 1-3.707-2.656 12.08 12.08 0 0 1-2.21-3.39c-.165-.342-.016-.55.12-.705.126-.147.28-.382.42-.573.14-.191.188-.319.28-.53.09-.212.045-.401-.023-.572-.07-.171-.612-1.47-.84-2.006-.22-.53-.446-.46-.644-.46-.165 0-.356-.022-.544-.022a1.09 1.09 0 0 0-.79.365 3.54 3.54 0 0 0-1.01 2.57c0 1.4.88 2.753 1.006 2.946.126.191 2.19 3.343 5.3 4.68a6.5 6.5 0 0 0 2.906.53c.395 0 1.567-.63 1.79-1.238.22-.6.22-1.113.154-1.237z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://instagram.com/brazzacafes" target="_blank" rel="noopener noreferrer"
+            class="flex items-center justify-center bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-400 text-white font-bold px-5 py-3 rounded-full shadow transition hover:opacity-90 w-full sm:w-auto">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2C4.903 2 2.5 4.403 2.5 7.25v9.5C2.5 19.597 4.903 22 7.75 22h8.5c2.847 0 5.25-2.403 5.25-5.25v-9.5C21.5 4.403 19.097 2 16.25 2h-8.5zm6.75 4.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zm-4 2.5a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm7.25 6.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0z"/></svg>
+            Instagram
+          </a>
+          <a href="{{ url_for('static', filename='cardapio.pdf') }}" target="_blank"
+            class="flex items-center justify-center bg-yellow-400 text-black font-bold px-5 py-3 rounded-full shadow hover:bg-yellow-300 transition w-full sm:w-auto">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0L8 4H4c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-6-8zM6 18h12v-2H6v2zm7-5v3h-2v-3H7l5-5 5 5h-4z"/></svg>
+            Baixar Cardápio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Localização -->
+    <section id="localizacao" class="p-12 bg-orange-50" data-aos="fade-up">
+      <h2 class="text-4xl font-semibold text-center text-orange-900 mb-8">Nossas Localizações</h2>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="map-responsive">
+                  <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3658.222341017754!2d-46.7658496!3d-23.5245042!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceffa0e6c7b5a9%3A0xfb54dbcb83f84929!2sHavan%20Osasco!5e0!3m2!1spt-BR!2sbr!4v1749677684229!5m2!1spt-BR!2sbr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <p class="text-center font-medium text-orange-800 mt-2">Unidade Osasco</p>
+        </div>
+        <div class="map-responsive">
+                  <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3653.6052042645856!2d-46.5807053!3d-23.6900725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce43f20b6b684d%3A0x136e0ba9d3784626!2sHavan%20S%C3%A3o%20Bernardo%20do%20Campo!5e0!3m2!1spt-BR!2sbr!4v1749677787590!5m2!1spt-BR!2sbr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <p class="text-center font-medium text-orange-800 mt-2">Unidade São Bernardo do Campo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="text-center py-8 bg-orange-900 text-orange-100">
+      <p>© 2025 Brazza Cafés. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+  </body>
+  <div id="tsparticles"></div>
+  <script>
+  tsParticles.load("tsparticles", {
+    background: { color: "#1d120b" },
+    particles: {
+      color: { value: "#f97316" },
+      move: { enable: true, speed: 0.3 },
+      number: { value: 20 },
+      opacity: { value: 0.3 },
+      shape: { type: "circle" },
+      size: { value: 4 },
+    },
+  });
+</script>
+  </html>
